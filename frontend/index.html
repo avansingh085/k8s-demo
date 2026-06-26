@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kubernetes Demo</title>
+</head>
+<body>
+
+<h1>Kubernetes Demo</h1>
+
+<button onclick="loadData()">
+Load Backend
+</button>
+
+<p id="data"></p>
+
+<script>
+
+async function loadData(){
+
+const res=await fetch("http://backend-service:5000/api");
+
+const data=await res.json();
+
+document.getElementById("data").innerHTML=data.message;
+
+}
+
+</script>
+
+</body>
+</html>
